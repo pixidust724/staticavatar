@@ -6,32 +6,24 @@
     <title>Avatar Static Test</title>
     <link rel="stylesheet" href="styles.css">
     <script type="module">
-        import EmbeddedPageSdk from "https://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-1.7.1.js";
-    
+
+        import EmbeddedPageSdk from "hhttps://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-1.4.js"
+        
         window.addEventListener("DOMContentLoaded", () => {
-            const debugMode = true;
-            const stimulusId = null; 
-            const forceRun = false;
-    
-            const reSdk = new EmbeddedPageSdk(debugMode, stimulusId, forceRun);
-    
-            // Start tracking when page loads
-            console.log("RealEye SDK initialized on index.html");
-            reSdk.startNextExposure();
-    
-            // Stop tracking when "Start Exam" button is clicked
-            document.querySelector("[data-re-aoi-name='startExamButton']").addEventListener("click", () => {
-                console.log("User clicked Start Exam. Stopping tracking and navigating...");
-                reSdk.finishEyeTrackingTest(); // Stop tracking before moving to exam.html
-                location.href = "exam.html";
-            });
+           const debugMode = false;
+           const stimulusId = null; // Or Stimulus/Item UUID from RealEye Study, e.g. "61560b76-3d31-4f0e-b530-55bd8709aadb"
+           const forceRun = false;
+        
+           const reSdk = new EmbeddedPageSdk(debugMode, stimulusId, forceRun)
         });
-    </script>
+        
+        </script>
+                
     
 </head>
 <body>
-    <div class="container">
-        <button data-re-aoi-name="startExamButton" onclick="location.href='exam.html'">
+    <div class="container" data-re-aoi-name="startExamButton">
+        <button onclick="location.href='exam.html'">
             Start Exam
         </button>
     </div>
