@@ -15,6 +15,11 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers image & button */
+    justify-content: center;
+    height: 100vh;
     text-align: center;
 }
 
@@ -30,6 +35,18 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+#finishTestButton {
+    margin-top: 20px; /* Adds space between the image and button */
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    background-color: #dc3545; /* Red to indicate finishing */
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
 }
 
 img {

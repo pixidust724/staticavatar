@@ -3,12 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Exam</title>
+    <title>Avatar Static Test</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module">
+
+        import EmbeddedPageSdk from "https://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-1.7.1.js"
+        
+        window.addEventListener("DOMContentLoaded", () => {
+           const debugMode = true;
+           const stimulusId = null; // Or Stimulus/Item UUID from RealEye Study, e.g. "61560b76-3d31-4f0e-b530-55bd8709aadb"
+           const forceRun = false;
+        
+           const reSdk = new EmbeddedPageSdk(debugMode, stimulusId, forceRun);
+              // Handle Test Completion when the button is clicked
+            document.getElementById("finishTestButton").addEventListener("click", () => {
+                console.log("User finished the test.");
+                reSdk.finishEyeTrackingTest(); // Stop tracking
+                alert("Test completed. Thank you!"); // Optional message
+            });
+      });
+        
+        </script>
 </head>
 <body>
     <div class="container">
-        <button onclick="location.href='exam.html'">Start Exam</button>
+        <button data-re-aoi-name="startExamButton" onclick="location.href='exam.html'">
+            Start Exam
+        </button>
     </div>
 </body>
 </html>
