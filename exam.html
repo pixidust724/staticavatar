@@ -5,6 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam</title>
     <link rel="stylesheet" href="styles.css">
+    <script type="module">
+        import EmbeddedPageSdk from "https://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-1.7.1.js";
+    
+        window.addEventListener("DOMContentLoaded", () => {
+            const debugMode = true;
+            const stimulusId = null; 
+            const forceRun = false;
+    
+            const reSdk = new EmbeddedPageSdk(debugMode, stimulusId, forceRun);
+    
+            // Restart tracking when `exam.html` loads
+            console.log("Exam page loaded. Restarting RealEye tracking...");
+            reSdk.startNextExposure();
+    
+            // Debug: Check if AOI elements exist
+            document.querySelectorAll("[data-re-aoi-name]").forEach(aoi => {
+                console.log("AOI detected:", aoi.dataset.reAoiName);
+            });
+    
+            // Stop tracking when "Finish Test" button is clicked
+            document.getElementById("finishTestButton").addEventListener("click", () => {
+                console.log("User finished the test.");
+                reSdk.finishEyeTrackingTest(); // Stop tracking
+                alert("Test completed. Thank you!");
+            });
+        });
+    </script>
+    
 </head>
 <body>
     <div class="container">
