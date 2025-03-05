@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="styles.css">
     <script type="module">
 
-        import EmbeddedPageSdk from "hhttps://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-1.4.js"
+        import EmbeddedPageSdk from "https://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-1.4.js"
         
         window.addEventListener("DOMContentLoaded", () => {
-           const debugMode = false;
+           const debugMode = true;
            const stimulusId = null; // Or Stimulus/Item UUID from RealEye Study, e.g. "61560b76-3d31-4f0e-b530-55bd8709aadb"
            const forceRun = false;
         
@@ -22,10 +22,14 @@
     
 </head>
 <body>
-    <div class="container" data-re-aoi-name="startExamButton">
+    <div class="container">
+        <img id="avatarImage" data-re-aoi-name="avatarPicture" src="exam-image.png" alt="Avatar Image">
+        <!-- <button id="finishTestButton" data-re-aoi-name="finishedButton">Finish Test</button> -->
+    </div>
+    <!-- <div class="container" data-re-aoi-name="startExamButton">
         <button onclick="location.href='exam.html'">
             Start Exam
         </button>
-    </div>
+    </div> -->
 </body>
 </html>
