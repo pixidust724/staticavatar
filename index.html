@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <script type="module">
 
-        import EmbeddedPageSdk from "https://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-1.4.js"
+        import EmbeddedPageSdk from "https://app.realeye.io/sdk/js/testRunnerEmbeddableSdk-latest.js"
         
         window.addEventListener("DOMContentLoaded", () => {
            const debugMode = true;
@@ -24,7 +24,7 @@
 <body>
     <div class="container">
         <img id="avatarImage" data-re-aoi-name="avatarPicture" src="exam-image.png" alt="Avatar Image">
-        <!-- <button id="finishTestButton" data-re-aoi-name="finishedButton">Finish Test</button> -->
+        <button id="finishTestButton" data-re-aoi-name="finishedButton">Finish Test</button>
     </div>
     <!-- <div class="container" data-re-aoi-name="startExamButton">
         <button onclick="location.href='exam.html'">
